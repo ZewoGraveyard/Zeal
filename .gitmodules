@@ -1,0 +1,12 @@
+[submodule "HTTPParser"]
+	path = HTTPParser
+	url = https://github.com/Zewo/HTTPParser.git
+	branch = master
+[submodule "TCPIP"]
+	path = TCPIP
+	url = https://github.com/Zewo/TCPIP.git
+	branch = master
+[submodule "GrandCentralDispatch"]
+	path = GrandCentralDispatch
+	url = https://github.com/Zewo/GrandCentralDispatch.git
+	branch = master
