@@ -30,7 +30,7 @@ import GrandCentralDispatch
 
 class ZealTests: XCTestCase {
     func testExample() {
-        let client = HTTPClient(host: "www.apple.com", port: 80)
+        let client = HTTPClient(host: "http://www.google.com.br/?gfe_rd=cr&ei=CDBeVsnAL4OX8QevspGwAg", port: 80)
 
         client.get("/") { result in
             do {

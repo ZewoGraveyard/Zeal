@@ -67,6 +67,20 @@ extension HTTPClientType {
         }
     }
 
+    public func delete(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .DELETE,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
+    }
+
+    public func delete(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        delete(uri, headers: headers, body: body.data, result: result)
+    }
+
     public func get(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
         let request = HTTPRequest(
             method: .GET,
@@ -75,5 +89,93 @@ extension HTTPClientType {
             body: body
         )
         send(request, result: result)
+    }
+
+    public func get(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        get(uri, headers: headers, body: body.data, result: result)
+    }
+
+    public func head(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .HEAD,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
+    }
+
+    public func head(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        head(uri, headers: headers, body: body.data, result: result)
+    }
+
+    public func post(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .POST,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
+    }
+
+    public func post(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        post(uri, headers: headers, body: body.data, result: result)
+    }
+
+    public func put(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .PUT,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
+    }
+
+    public func put(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        put(uri, headers: headers, body: body.data, result: result)
+    }
+
+    public func connect(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .CONNECT,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
+    }
+
+    public func connect(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        connect(uri, headers: headers, body: body.data, result: result)
+    }
+
+    public func options(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .OPTIONS,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
+    }
+
+    public func options(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        options(uri, headers: headers, body: body.data, result: result)
+    }
+
+    public func trace(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .TRACE,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
+    }
+
+    public func trace(uri: String, headers: [String: String] = [:], body: String, result: (Void throws -> HTTPResponse) -> Void) {
+        trace(uri, headers: headers, body: body.data, result: result)
     }
 }
