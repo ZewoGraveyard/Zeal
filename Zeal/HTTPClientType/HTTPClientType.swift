@@ -22,6 +22,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import URI
 import HTTP
 
 public protocol HTTPClientType {
@@ -64,5 +65,15 @@ extension HTTPClientType {
                 result { throw error }
             }
         }
+    }
+
+    public func get(uri: String, headers: [String: String] = [:], body: [Int8] = [], result: (Void throws -> HTTPResponse) -> Void) {
+        let request = HTTPRequest(
+            method: .GET,
+            uri: URI(string: uri),
+            headers: headers,
+            body: body
+        )
+        send(request, result: result)
     }
 }

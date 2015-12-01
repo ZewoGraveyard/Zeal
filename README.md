@@ -31,13 +31,13 @@ import HTTP
 import Zeal
 
 let client = HTTPClient(host: "www.apple.com", port: 80)
-let request = HTTPRequest(method: .GET, uri: URI(string: "/"))
 
-client.send(request) { result in
+client.get("/") { result in
     do {
         let response = try result()
+        // do your thing! (:
     } catch {
-        // something bad happened
+        // something bad happened :(
     }
 }
 ```
