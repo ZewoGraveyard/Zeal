@@ -45,10 +45,10 @@ final class TCPStream: TCPStreamType {
     func receive(completion: (Void throws -> [Int8]) -> Void) {
         channel.read { result in
             result.success { done, data in
-                completion { data }
+                completion({ data })
             }
             result.failure { error in
-                completion { throw error }
+                completion({ throw error })
             }
         }
     }
@@ -57,11 +57,11 @@ final class TCPStream: TCPStreamType {
         channel.write(data: data) { result in
             result.success { done, _ in
                 if done {
-                    completion {}
+                    completion({})
                 }
             }
             result.failure { error in
-                completion { throw error }
+                completion({ throw error })
             }
         }
     }

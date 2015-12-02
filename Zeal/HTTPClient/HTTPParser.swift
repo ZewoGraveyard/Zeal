@@ -28,7 +28,7 @@ import HTTPParser
 struct HTTPParser: HTTPResponseParserType {
     func parseResponse(client: TCPStreamType, completion: (Void throws -> HTTPResponse) -> Void) {
         let parser = HTTPResponseParser { response in
-            completion { response }
+            completion({ response })
         }
 
         client.receive { result in
@@ -36,7 +36,7 @@ struct HTTPParser: HTTPResponseParserType {
                 let data = try result()
                 try parser.parse(data)
             } catch {
-                completion { throw error }
+                completion({ throw error })
             }
         }
     }

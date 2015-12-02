@@ -50,19 +50,19 @@ extension HTTPClientType {
                     do {
                         try serializeResult()
                     } catch {
-                        result { throw error }
+                        result({ throw error })
                     }
                 }
                 self.parser.parseResponse(stream) { parseResult in
                     do {
                         let response = try parseResult()
-                        result { response }
+                        result({ response })
                     } catch {
-                        result { throw error }
+                        result({ throw error })
                     }
                 }
             } catch {
-                result { throw error }
+                result({ throw error })
             }
         }
     }

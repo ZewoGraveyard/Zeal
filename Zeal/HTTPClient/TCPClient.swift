@@ -35,9 +35,9 @@ struct TCPClient: TCPClientType {
                 let ip = try IP(address: self.host, port: self.port)
                 let socket = try TCPClientSocket(ip: ip)
                 let stream = TCPStream(socket: socket)
-                completion { stream }
+                completion({ stream })
             } catch {
-                completion { throw error }
+                completion({ throw error })
             }
         }
     }
